@@ -1,0 +1,23 @@
+.explanation-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    margin-left: 20px;
+    list-style-type: disc;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  

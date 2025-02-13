@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  --color-yellow: #f9c74f;
+  --color-purple: #9d4edd;
+}
+* > * {
+  font-family: "Poppins", sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  padding: 4em 0;
+}
+
+.bg-yellow {
+  background-color: var(--color-yellow);
+}
+
+.bg-purple {
+  background-color: var(--color-purple);
+}
+
+.chart .title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn3d {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  color: #fff;
+  background: #3498db;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px #2980b9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn3d:hover {
+  background: #2980b9;
+}
+
+.btn3d:active {
+  box-shadow: 0 2px #2980b9;
+  transform: translateY(2px);
+}
+
+.form-input {
+  padding: 10px;
+  border: 1px solid #f4f3f3;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.192);
+}
+
+.form {
+  margin: 20px auto;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.submit-btn button {
+  background: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-btn button:hover {
+  background: #45a049;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.transaction-list-container {
+  max-height: 400px; /* Adjust height to your preference */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-top: 20px; /* Add margin to separate from form */
+  padding: 10px; /* Padding for better spacing */
+  background-color: whitesmoke; /* Background color */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.fixed-transaction-list {
+  max-height: 400px; /* Set the maximum height for the transaction list */
+  overflow-y: auto; /* Enable vertical scrolling */
+  position: fixed; /* Fix the position of the transaction list */
+  top: 100px; /* Adjust the top position to your preference */
+  right: 20px; /* Adjust the right position to your preference */
+  width: 300px; /* Set the width for the transaction list */
+}
+
+.transaction-list-container .py-4 {
+  color: rgb(24, 3, 3);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.button-3d:hover {
+  background: #f0ecec;
+  transition: background-color 0.4s ease;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+
+.button-3d {
+  background: transparent;
+  color: #808080;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+
+.form-input {
+  @apply mt-1 block w-full py-2 px-3 border border-gray-200 bg-white rounded-md focus:outline-none focus:ring-indigo-500 sm:text-sm;
+}
