@@ -21,6 +21,16 @@ img {
 
 }
 /* Add this to your CSS file */
+.navbar {
+  transition: transform 0.3s ease-in-out;
+}
+.primary-button, .secondary-button {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.primary-button:hover, .secondary-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
 .dark-mode {
   background-color: #121212;

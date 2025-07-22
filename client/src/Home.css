@@ -1,0 +1,76 @@
+.home-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  }
+  
+  .home-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px);
+    padding: 2rem;
+  }
+  
+  .home-content {
+    text-align: center;
+    max-width: 800px;
+  }
+  
+  .heading-container {
+    margin-bottom: 3rem;
+  }
+  
+  .heading {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #2d3436;
+  }
+  
+  .brand-name {
+    color: #0984e3;
+    display: block;
+  }
+  
+  .subtext {
+    font-size: 1.5rem;
+    color: #636e72;
+    margin-bottom: 2rem;
+  }
+  
+  .start-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    background: #0984e3;
+    color: white;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(9, 132, 227, 0.3);
+  }
+  
+  .start-button:hover {
+    transform: translateY(-3px);
+    background: #0873c4;
+  }
+  
+  .arrow-icon {
+    margin-left: 0.8rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .start-button:hover .arrow-icon {
+    transform: translateX(5px);
+  }
+  
+  @media (max-width: 768px) {
+    .heading {
+      font-size: 2.5rem;
+    }
+    
+    .subtext {
+      font-size: 1.2rem;
+    }
+  }

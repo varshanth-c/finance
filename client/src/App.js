@@ -5,13 +5,13 @@ import 'normalize.css';
 
 import Home from "./components/Home";
 
-import Work from "./components/Work";
+
 
 
 import ExpenseTracker from "./components/ExpenseTracker";
-
+import Login from "./components/Login";
 import ResizeObserver from 'resize-observer-polyfill';
-
+import Signup from "./components/Signup";
 // Replace all instances of ResizeObserver with the polyfill
 window.ResizeObserver = ResizeObserver;
  // import your new component
@@ -24,9 +24,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home/>}/>
+          <Route path="/Signup" element={<Signup/>}/>
           
-          <Route path="/work" element={<Work />} />
-          
+          <Route path="/login" element={<Login />} />
           <Route path="/ExpenseTracker" element={<ExpenseTracker />} />
           
         </Routes>
