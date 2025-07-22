@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Gemini Chat (Backend)</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f7f7f7; }
+    .container { max-width: 500px; margin: 2rem auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 24px; }
+    .chat { min-height: 120px; margin-bottom: 16px; }
+    .msg { margin: 8px 0; }
+    .user { text-align: right; color: #1976d2; }
+    .gemini { text-align: left; color: #388e3c; }
+    input[type="text"] { width: 80%; padding: 8px; }
+    button { padding: 8px 16px; margin-left: 8px; }
+    .error { color: red; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Simple Gemini Chat (Backend)</h2>
+    <div class="chat" id="chat"></div>
+    <input type="text" id="input" placeholder="Type your message..." />
+    <button id="send">Send</button>
+    <div class="error" id="error"></div>
+  </div>
+  <script>
+    const chat = document.getElementById('chat');
+    const input = document.getElementById('input');
+    const sendBtn = document.getElementById('send');
+    const errorDiv = document.getElementById('error');
+    let loading = false;
+    let messages = [];
+
+    function render() {
+      chat.innerHTML = '';
+      messages.forEach(msg => {
+        const div = document.createElement('div');
+        div.className = 'msg ' + (msg.role === 'user' ? 'user' : 'gemini');
+        div.innerHTML = `<b>${msg.role === 'user' ? 'You' : 'Gemini'}:</b> ${msg.text}`;
+        chat.appendChild(div);
+      });
+    }
+
+    sendBtn.onclick = async function() {
+      if (loading || !input.value.trim()) return;
+      errorDiv.textContent = '';
+      const userMsg = input.value.trim();
+      messages.push({ role: 'user', text: userMsg });
+      render();
+      input.value = '';
+      loading = true;
+      sendBtn.disabled = true;
+      try {
+        const res = await fetch('http://localhost:5050/simple-gemini-chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userMsg })
+        });
+        const data = await res.json();
+        if (data.reply) {
+          messages.push({ role: 'gemini', text: data.reply });
+        } else if (data.error) {
+          errorDiv.textContent = data.details || data.error;
+          messages.push({ role: 'gemini', text: 'Error: ' + (data.details || data.error) });
+        } else {
+          messages.push({ role: 'gemini', text: 'No response' });
+        }
+        render();
+      } catch (err) {
+        errorDiv.textContent = 'Failed to get response from backend.';
+      } finally {
+        loading = false;
+        sendBtn.disabled = false;
+      }
+    };
+  </script>
+</body>
+</html>
