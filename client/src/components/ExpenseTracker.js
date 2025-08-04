@@ -137,12 +137,7 @@ export default function ExpenseTracker() {
         <h1 className="text-2xl mb-8 text-#666666">TrackMe</h1>
       </Link>
       
-      {/* Add user indicator */}
-      {currentUser && (
-        <div className="text-gray-600 mb-4">
-          Current User: {currentUser.email || currentUser.name}
-        </div>
-      )}
+      
       
       <div className="px-6 flex justify-between items-center mb-6">
         <button 

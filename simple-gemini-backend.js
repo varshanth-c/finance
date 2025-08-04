@@ -7,13 +7,13 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'AIzaSyBwISqWOsYPeL6KFhGCNQWe9TnHOcMDj3s');
+const genAI = new GoogleGenerativeAI('AIzaSyCOYyZi7d_KPBvRKSzlKW13ablRrGl96BU');
 
 app.post('/simple-gemini-chat', async (req, res) => {
   try {
     const { message } = req.body;
     if (!message) return res.status(400).json({ error: 'Message is required' });
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
     const result = await model.generateContent(message);
     const text = result.response.text();
     res.json({ reply: text });
